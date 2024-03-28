@@ -15,8 +15,10 @@ function inversions(n: number, list: number[]) {
 
 // 2 3 8 6 1
 
-console.log(inversions(5, [2, 3, 8, 6, 1]))
-console.log(inversions(5, [6, 3, 8, 2, 1]))
-console.log(inversions(2, [1, 0]))
-console.log(inversions(2, [0, 1]))
-console.log(inversions(1, [1]))
+let numArray = prompt()!.split(' ').map(Number);
+
+console.log(numArray)
+// console.log(inversions(5, [6, 3, 8, 2, 1]))
+// console.log(inversions(2, [1, 0]))
+// console.log(inversions(2, [0, 1]))
+// console.log(inversions(1, [1]))
