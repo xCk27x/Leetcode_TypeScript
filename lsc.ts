@@ -3,8 +3,7 @@ let s = [[1 ,0, 0, 0, 0], [0, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 0], [0,
 let r: number[][] = new Array(s.length).fill(Array(s.length).fill(0));
 
 function lsc(): number {
-
-
+  
 }
 
 // D[i][j] = max{ D[i-1][j-1] + s[i][j],
