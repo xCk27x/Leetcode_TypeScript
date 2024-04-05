@@ -1,0 +1,6 @@
+# 要忽略的資料夾:
+build
+coverage
+
+# 要忽略的檔案:
+*.html
