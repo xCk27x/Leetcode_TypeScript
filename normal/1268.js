@@ -23,7 +23,8 @@ function suggestedProducts(products, searchWord) {
     let temp = products;
     for (let i = 0; i < searchWord.length; i++) {
         products = products.filter(p => p.charAt(i) === searchWord[i]);
-        re.push(threeLexiMinProducts(products, searchWord));
+        temp = products;
+        re.push(temp.sort().slice(0, 3));
     }
     return re;
 }
