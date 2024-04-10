@@ -56,16 +56,14 @@ x = []
 y_merge = []
 y_insert = []
 
-for i in range(10,200,10):
+for i in range(500):
     numArray = random_int_list(0, 1000, i)
 
     start_merge = time.time()
-    time.sleep(1)
     _, count_merge = inversions_merge(i, numArray)
     end_merge = time.time()
 
     start_insert = time.time()
-    time.sleep(1)
     count_insert = inversions_insert(i, numArray)
     end_insert = time.time()
 
