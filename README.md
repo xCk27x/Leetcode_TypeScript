@@ -2,7 +2,7 @@
 
 **start: 2024/03/17**
 
-### [IG: leetcode_until_graduate](https://www.instagram.com/leetcode_until_graduate?igsh=bDM1Y3VvOHl1ZTdj)
+### IG: [leetcode_until_graduate](https://www.instagram.com/leetcode_until_graduate?igsh=bDM1Y3VvOHl1ZTdj)
 
 
 

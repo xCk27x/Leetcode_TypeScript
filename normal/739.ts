@@ -1,38 +1,41 @@
-// [73,74,75,71,69,72,76,73]
-// [1,1,4,2,1,1,0,0]
+// temperatures = [73,74,75,71,69,72,76,73]
+// Output: [1,1,4,2,1,1,0,0]
 
 function dailyTemperatures(temperatures: number[]): number[] {
-  if (temperatures.length <= 1) return [0];
-
-  let re: number[] = [];
-  let countStack: number[] = [];
-  let temperStack: number[] = [temperatures[0]];
-  let indexStack: number[] = [0];
-
+  let iStack: number[] = [0];
+  let tStack: number[] = [temperatures[0]];
+  let re: number[][] = [];
   for (let i = 1; i < temperatures.length; i++) {
-    while (temperStack.length > 0 && temperStack[temperStack.length - 1] < temperatures[i]) {
-      temperStack.pop();
-      countStack.push(i - indexStack.pop()!);
+    while (temperatures[i] > tStack[tStack.length - 1]) {
+      let temp = iStack.pop()!;
+      re.push([i - temp, temp]);
+      tStack.pop();
     }
-    if (temperStack.length === 0) {
-      while (countStack.length > 0) {
-        re.push(countStack.pop()!);
-      }
+    iStack.push(i);
+    tStack.push(temperatures[i]);
+  }
+  for (let i = 0; i < iStack.length; i++) {
+    re.push([0, iStack[i]]);
+  }
+  return re.sort((a, b) => a[1] - b[1]).map((c) => c[0]);
+}
+
+function dailyTemperatures2(temperatures: number[]): number[] {
+  let re: number[] = new Array(temperatures.length);
+  let iStack: number[] = [];
+  for (let i = 0; i < temperatures.length; i++) {
+    while (iStack.length > 0 && temperatures[i] > temperatures[iStack[iStack.length - 1]]) {
+      let temp = iStack.pop()!;
+      re[temp] = i - temp;
     }
-    temperStack.push(temperatures[i]);
-    indexStack.push(i);
-    
+    iStack.push(i);
   }
-  while (countStack.length > 0) {
-    re.push(countStack.pop()!);
-  }
-  for (let i = 0; i < indexStack.length; i++) {
-    re.push(0);
+
+  for (let i of iStack) {
+    re[i] = 0;
   }
 
   return re;
-};
+}
 
-console.log(dailyTemperatures([73,74,75,71,69,72,76,73])); // [1,1,4,2,1,1,0,0]
-console.log(dailyTemperatures([30,40,50,60])); // [1,1,1,0]
-console.log(dailyTemperatures([30,60,90])); // [1,1,0]
+console.log(dailyTemperatures2([73, 74, 75, 71, 69, 72, 76, 73])); // [1,1,4,2,1,1,0,0]

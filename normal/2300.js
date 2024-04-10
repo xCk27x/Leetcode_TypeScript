@@ -1,7 +1,7 @@
 function insertIndex(arr, target) {
-    let left = 0;
-    let right = arr.length - 1;
-    let mid = 0;
+    var left = 0;
+    var right = arr.length - 1;
+    var mid = 0;
     mid = Math.floor((left + right) / 2);
     while (left <= right) {
         if (arr[mid] <= target) {
@@ -18,10 +18,11 @@ function insertIndex(arr, target) {
     return Math.abs(mid);
 }
 function successfulPairs(spells, potions, success) {
-    let re = [];
-    potions = potions.sort((a, b) => b - a).map(p => Math.ceil(success / p));
+    var re = [];
+    potions = potions.sort(function (a, b) { return b - a; }).map(function (p) { return Math.ceil(success / p); });
     console.log('potions: ', potions);
-    for (let s of spells) {
+    for (var _i = 0, spells_1 = spells; _i < spells_1.length; _i++) {
+        var s = spells_1[_i];
         re.push(insertIndex(potions, s));
     }
     return re;
