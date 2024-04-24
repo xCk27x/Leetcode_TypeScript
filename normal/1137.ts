@@ -8,3 +8,11 @@ function tribonacci(n: number): number {
   }
   return triList.pop()!;
 };
+
+function tribonacci2(n: number): number {
+  const triSeq = [0, 1, 1];
+  for (let i = 2; i < n; i++) {
+    triSeq.push(triSeq[i] + triSeq[i - 1] + triSeq[i - 2]);
+  }
+  return triSeq[n];
+}
