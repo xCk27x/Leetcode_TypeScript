@@ -21,7 +21,6 @@ function minEnd(n: number, x: number): number {
   }
   
   let a = findBits(n-1);
-
   
   for (let i = a.length - 1; i >= 0; i--) {
     if (a[i] === 0) {
@@ -31,7 +30,6 @@ function minEnd(n: number, x: number): number {
     }
   }
   
-  console.log(a, bits)
   for (let i = 0; a.length > 0; i++) {
     if (bits[i] === 0) {
       bits[i] = a.shift()!;

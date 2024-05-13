@@ -1,22 +1,6 @@
-function kNapSack(items, weight) {
-    let itemWeightMap = new Array(items.length + 1);
-    for (let i = 0; i < items.length + 1; i++) {
-        itemWeightMap[i] = new Array(weight).fill(0);
-    }
-    for (let j = 1; j <= items.length; j++) {
-        for (let k = 0; k < weight; k++) {
-            if (items[j - 1][1] > k) {
-                itemWeightMap[j][k] = itemWeightMap[j - 1][k];
-            }
-            else {
-                itemWeightMap[j][k] = Math.max(itemWeightMap[j - 1][k], items[j - 1][0] + itemWeightMap[j - 1][k - items[j - 1][1]]);
-            }
-        }
-    }
-    return itemWeightMap[items.length - 1][weight - 1];
-}
+"use strict";
 // items: [value, weight]
-function kNapSack2(items, weight) {
+function kNapSack(items, weight) {
     let p = new Array(items.length);
     for (let i = 0; i < items.length; i++) {
         p[i] = new Array(weight).fill(false);
@@ -39,4 +23,4 @@ function kNapSack2(items, weight) {
         }
     return c[weight - 1];
 }
-console.log('此背包可容納的最大價值為', (kNapSack2([[20, 2], [30, 5], [50, 10], [10, 5]], 16))); // 80
+console.log('此背包可容納的最大價值為', (kNapSack([[20, 2], [30, 5], [50, 10], [10, 5]], 16))); // 80

@@ -1,3 +1,4 @@
+"use strict";
 function inversions(n, list) {
     if (n <= 1)
         return 0;
