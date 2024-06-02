@@ -15,7 +15,8 @@ function addTwoNumbers(l1: ListNode | null, l2: ListNode | null): ListNode | nul
   else {
     let sum = l1.val + l2.val;
     // sum < 10
-    if (sum < 10) return new ListNode(sum, addTwoNumbers(l1?.next ? l1.next : null, l2?.next ? l2.next : null));
+    if (sum < 10)
+      return new ListNode(sum, addTwoNumbers(l1?.next ? l1.next : null, l2?.next ? l2.next : null));
     // sum >= 10
     else {
       if (l1.next && l2.next) {
