@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@datastructures-js/priority-queue": "^6.3.1",
+    "axios": "^1.7.2",
     "fs": "^0.0.1-security",
     "node": "^20.14.0"
   }
